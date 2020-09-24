@@ -14,12 +14,12 @@ export default new GraphQLObjectType({
       id: {
         type: GraphQLID,
         description: "Unique ID",
-        resolve: () => "2",
+        resolve: (person) => person.id,
       },
       name: {
         type: GraphQLString,
         description: "Person name",
-        resolve: () => "Claudeilton Dantas",
+        resolve: (person) => person.name,
       },
     };
   },

@@ -6,9 +6,4 @@ export default new GraphQLSchema({
     name: "Query",
     fields: queries,
   }),
-
-  // mutation: new GraphQLObjectType({
-  //   name: "Mutation",
-  //   fields: mutation,
-  // }),
 });

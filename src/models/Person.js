@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 
-const Person = new mongoose.Schema({
+const Person = new Schema({
   name: String,
 });
 

@@ -1,8 +1,8 @@
 import express from "express";
 import bodyParser from "body-parser";
-
 import { graphqlHTTP } from "express-graphql";
-import { buildSchema } from "graphql";
+// import { buildSchema } from "graphql";
+import Schema from "./graphql/index";
 
 import routes from "./routes/";
 
@@ -13,21 +13,21 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-const MessageSchema = buildSchema(`
-  type Query {
-    message: String
-  }
-`);
+// const MessageSchema = buildSchema(`
+//   type Query {
+//     message: String
+//   }
+// `);
 
-const schemaRoot = {
-  message: () => "Hello Worlds",
-};
+// const schemaRoot = {
+//   message: () => "Hello Worlds",
+// };
 
 app.use(
   "/graphql",
   graphqlHTTP({
-    schema: MessageSchema,
-    rootValue: schemaRoot,
+    schema: Schema,
+    // rootValue: schemaRoot,
     graphiql: true,
     pretty: true,
   })

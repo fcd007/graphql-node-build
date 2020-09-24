@@ -1,7 +1,12 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const { graphqlHTTP } = require("express-graphql");
-const { GraphQLSchema, buildSchema } = require("graphql");
+import express from "express";
+import bodyParser from "body-parser";
+
+import { graphqlHTTP } from "express-graphql";
+import { buildSchema } from "graphql";
+
+import routes from "./routes/";
+
+import mongoose from "mongoose";
 
 const app = express();
 
@@ -15,7 +20,7 @@ const MessageSchema = buildSchema(`
 `);
 
 const schemaRoot = {
-  message: () => "Hello World",
+  message: () => "Hello Worlds",
 };
 
 app.use(
@@ -27,5 +32,12 @@ app.use(
     pretty: true,
   })
 );
+
+mongoose.connect("mongodb://localhost:27017/graphql", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+routes(app);
 
 app.listen(3000, () => console.log("Running porta 3000"));

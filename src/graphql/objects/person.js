@@ -1,4 +1,4 @@
-import { GraphQLID, GraphQLObjectType, GraphQLString } from "graphql";
+import { GraphQLObjectType, GraphQLID, GraphQLString } from "graphql";
 
 /* 
   `type Person {
